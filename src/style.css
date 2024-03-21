@@ -1,8 +1,9 @@
-*{
+* {
     font-family: "Libre Baskerville", serif;
     font-style: italic;
 }
-body{
+
+body {
     background-color: rgb(44, 43, 43);
     display: flex;
     align-items: center;
@@ -10,66 +11,64 @@ body{
     min-height: 90vh;
     color: #000;
 }
-.flip-conteiner{
+
+.flip-container {
     perspective: 1000px;
+    width: 100%;
+    max-width: 600px; 
+    height: auto;
+    position: relative;
 }
-.front{
+
+.front, .back {
+    width: 100%; 
+    height: auto; 
+    position: absolute;
+    backface-visibility: hidden;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+}
+
+.front {
     background-image: url(image/front.png);
     background-size: cover;
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
     transform: rotateY(0deg);
-    z-index: 2;
 }
-.back{
+
+.back {
     background-image: url(image/back.png);
     background-size: cover;
     background-color: #000;
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
     transform: rotateY(180deg);
-    z-index: 2;
 }
-.flip-conteiner, .front, .back{
-    height: 350px;
-    width: 600px;
-}
-.flip-conteiner:hover .flipper{
+
+.flip-container:hover .flipper {
     transform: rotateY(180deg);
-    cursor: pointer;
 }
-.flipper{
-    transition: .5s;
-    position: relative;
+
+.flipper {
+    transition: transform 0.5s;
     transform-style: preserve-3d;
 }
-.front, .back{
-    backface-visibility: hidden;
-    position: absolute;
-    background-size: cover;
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
-    backface-visibility: hidden;
-    position: absolute;
-    height: 350px;
-    width: 100%; 
-}
-@media (max-width: 180px) {
-    .flip-conteiner, .front, .back { 
-        width: auto; 
-        height: auto;
-    }
-    .front, .back {
-        background-size: contain;
-        background-position: center center;
-    }
 
+@media (max-width: 768px) { 
+    .flip-container, .front, .back {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) { 
     h1, p, .icons {
-        margin: 0 5%
-        width: 90%; 
+        margin: 0 10px;
+        width: auto;
     }
 
-    .back .icon-box {
-        left: 5%; 
+    .icon-box {
+        left: 10px;
     }
 }
+
 h1, p, .icons{
     color: #000;
     font-family: 'lato';
