@@ -53,20 +53,19 @@ body{
 }
 @media (max-width: 600px) {
     .flip-conteiner, .front, .back {
+        width: 90%; 
         width: 100%; 
-        height: auto; 
     }
 
     h1, p, .icons {
-        margin-left: 10%; 
+        margin-left: 5%; 
         width: 80%; 
     }
 
     .back .icon-box {
-        left: 10%; 
+        left: 5%; 
     }
 }
-
 h1, p, .icons{
     color: #000;
     font-family: 'lato';
